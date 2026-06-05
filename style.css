@@ -1,0 +1,53 @@
+body {
+    background-color: #000; /* Fundo preto igual à imagem */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.loader {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dot {
+    position: absolute;
+    width: 25px; /* Tamanho das bolinhas */
+    height: 25px;
+    border-radius: 50%; /* Faz ser um círculo perfeito */
+    animation: move 2s ease-in-out infinite; /* Animação de 2 segundos infinita */
+}
+
+/* Cores específicas baseadas na imagem */
+.yellow { background-color: #e2e600; top: 50%; left: 50%; margin-top: -12.5px; margin-left: -12.5px; }
+.green  { background-color: #00c800; top: 50%; left: 50%; margin-top: -12.5px; margin-left: -12.5px; }
+.blue   { background-color: #0096ff; top: 50%; left: 50%; margin-top: -12.5px; margin-left: -12.5px; }
+.pink   { background-color: #d13060; top: 50%; left: 50%; margin-top: -12.5px; margin-left: -12.5px; }
+
+/* Animação de Abrir e Fechar */
+@keyframes move {
+    0%, 100% {
+        transform: translate(0, 0); /* Todas no centro (fechadas) */
+    }
+    50% {
+        /* Define a direção de cada cor ao "abrir" */
+        /* Amarela para cima, Verde para direita, Azul para baixo, Rosa para esquerda */
+    }
+}
+
+/* Ajuste individual de direção para cada bolinha */
+.yellow { animation-name: moveYellow; }
+.green  { animation-name: moveGreen; }
+.blue   { animation-name: moveBlue; }
+.pink   { animation-name: movePink; }
+
+@keyframes moveYellow { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(0, -20px); } }
+@keyframes moveGreen  { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(20px, 0); } }
+@keyframes moveBlue   { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(0, 20px); } }
+@keyframes movePink   { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-20px, 0); } }
